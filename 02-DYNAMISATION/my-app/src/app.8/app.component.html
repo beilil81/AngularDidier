@@ -1,0 +1,8 @@
+
+<app-title></app-title>
+Filtrer la liste : <input #listeFilter (keyup)="0">
+<itemform-component (onCreateObject)="createObject($event)"></itemform-component>
+<div *ngFor="let item of collection | itemFilter:listeFilter.value">
+ 
+  <item-component [item] ="item" (onGetDetails)="getDetails($event)"></item-component>
+</div>

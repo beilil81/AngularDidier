@@ -1,0 +1,15 @@
+<h1>
+  {{ title }}
+</h1>
+<h2>
+  {{ version }}
+</h2>
+
+<!--{{ collection | json }}-->
+<!--2.2.1 utiliser directive *ngFor pour afficher la collection dans une boucle -->
+<div *ngFor="let item of collection">
+  <!--2.2.2 afficher chaque item dans la boucle à l'aide de 2 p-->
+  <p>Référence : {{ item.reference }}</p>
+  <p>Nom : {{ item.name }}</p>
+  <hr>
+</div>

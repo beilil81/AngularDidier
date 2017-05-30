@@ -1,0 +1,15 @@
+
+<h1>
+  {{ title }}
+</h1>
+<h2>
+  {{ version }}
+</h2>
+<!--12.3.1 utiliser le selector itemform-component pour afficher le template 
+               itemform-component.html -->
+<!--12.3.2 utiliser l'EventEmitter pour passer newItem au parent -->
+<itemform-component (onCreateObject)="createObject($event)"></itemform-component>
+
+<div *ngFor="let item of collection">
+  <item-component [item]="item" (onGetDetails)="getDetails($event)"></item-component>
+</div>

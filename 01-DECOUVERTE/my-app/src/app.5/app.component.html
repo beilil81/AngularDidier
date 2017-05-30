@@ -1,0 +1,18 @@
+<h1>
+  {{ title }}
+</h1>
+<h2>
+  {{ version }}
+</h2>
+
+<div *ngFor="let item of collection">
+  <p>Référence : {{ item.reference }}</p>
+  <p>Nom : {{ item.name }}</p>
+  <p class="state-0" *ngIf="0==item.state">A livrer</p>
+  <p class="state-1" *ngIf="1==item.state">En cours de livraison</p>
+  <p class="state-2" *ngIf="2==item.state">Commande livrée</p>
+  <!--5.1.1 add button avec click pour appel getDetails() en lui passant $event en argument, et un argument personnalisé -->
+  <!--5.1.2 add attribut id dans le button avec item.reference comme valeur-->
+  <button (click)="getDetails($event,'test')" id="{{ item.reference }}">Détail</button>
+  <hr>
+</div>

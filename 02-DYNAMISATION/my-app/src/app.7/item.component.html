@@ -1,0 +1,26 @@
+
+  <div class="panel panel-default animated" *ngIf="item.animateState !== 'removedFromDom'" 
+   [ngClass]="{'rubberBand': item.AnimateState !== 'removedFromDom', 
+   'fadeOut': item.AnimateState==='removed'}">
+    <div class="panel-heading">
+      <span>Référence: {{item.reference}}</span>    
+      
+      <span class="state-0 pull-right" *ngIf="0==item.state">A livrer</span>
+      <span class="state-1 pull-right" *ngIf="1==item.state">En cours de livraison</span>
+      <span class="state-2 pull-right" *ngIf="2==item.state">Commande livrée</span>
+      
+    </div>
+    <div class="panel-body">
+      <p>Nom: <span highlight> {{item.name | uppercase}}</span></p>
+      <div *ngIf="2 != item.state"><!-- state 2 : si deja livré, le bouton n'apparaitra pas -->
+        Changer le statut :
+        
+        <button (click)="changeState($event, 1)" *ngIf="1 != item.state" class="btn btn-primary">En cours de livraison</button>
+        <button (click)="changeState($event, 2)" class="btn btn-primary">Livrée</button>
+
+      </div>
+
+       <button *ngIf="2 === item.state" (click)="deleteItem()" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+    
+    </div>
+  </div>
